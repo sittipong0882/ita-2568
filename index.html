@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITA Assessment - วิทยาลัยเทคนิคเพชรบุรี</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            --secondary-gradient: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+            --accent-gradient: linear-gradient(135deg, #1e40af 0%, #60a5fa 100%);
             --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --shadow-light: 0 8px 32px rgba(30, 64, 175, 0.35);
             --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.15);
-            --text-dark: #2d3748;
-            --text-light: #4a5568;
+            --text-dark: #1e293b;
+            --text-light: #475569;
         }
 
         * {
@@ -53,14 +55,21 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
             animation: backgroundShift 10s ease-in-out infinite;
         }
 
         @keyframes backgroundShift {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
         }
 
         /* Floating Particles */
@@ -78,33 +87,97 @@
             position: absolute;
             width: 6px;
             height: 6px;
-            background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
             border-radius: 50%;
             opacity: 0.6;
             animation: float 8s ease-in-out infinite;
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        .particle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; transform: scale(1.2); }
-        .particle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; transform: scale(0.8); }
-        .particle:nth-child(3) { top: 70%; left: 20%; animation-delay: 2s; transform: scale(1.5); }
-        .particle:nth-child(4) { top: 80%; left: 90%; animation-delay: 3s; transform: scale(0.6); }
-        .particle:nth-child(5) { top: 40%; left: 60%; animation-delay: 4s; transform: scale(1); }
-        .particle:nth-child(6) { top: 60%; left: 30%; animation-delay: 5s; transform: scale(1.3); }
-        .particle:nth-child(7) { top: 30%; left: 70%; animation-delay: 6s; transform: scale(0.9); }
-        .particle:nth-child(8) { top: 50%; left: 10%; animation-delay: 7s; transform: scale(1.1); }
+        .particle:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            transform: scale(1.2);
+        }
+
+        .particle:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 1s;
+            transform: scale(0.8);
+        }
+
+        .particle:nth-child(3) {
+            top: 70%;
+            left: 20%;
+            animation-delay: 2s;
+            transform: scale(1.5);
+        }
+
+        .particle:nth-child(4) {
+            top: 80%;
+            left: 90%;
+            animation-delay: 3s;
+            transform: scale(0.6);
+        }
+
+        .particle:nth-child(5) {
+            top: 40%;
+            left: 60%;
+            animation-delay: 4s;
+            transform: scale(1);
+        }
+
+        .particle:nth-child(6) {
+            top: 60%;
+            left: 30%;
+            animation-delay: 5s;
+            transform: scale(1.3);
+        }
+
+        .particle:nth-child(7) {
+            top: 30%;
+            left: 70%;
+            animation-delay: 6s;
+            transform: scale(0.9);
+        }
+
+        .particle:nth-child(8) {
+            top: 50%;
+            left: 10%;
+            animation-delay: 7s;
+            transform: scale(1.1);
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.6; }
-            25% { transform: translateY(-30px) translateX(15px) rotate(90deg); opacity: 1; }
-            50% { transform: translateY(-60px) translateX(-10px) rotate(180deg); opacity: 0.8; }
-            75% { transform: translateY(-30px) translateX(-20px) rotate(270deg); opacity: 1; }
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(15px) rotate(90deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-60px) translateX(-10px) rotate(180deg);
+                opacity: 0.8;
+            }
+
+            75% {
+                transform: translateY(-30px) translateX(-20px) rotate(270deg);
+                opacity: 1;
+            }
         }
 
         /* Hero Section */
         .hero-banner {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                        url('https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+                url('https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -134,12 +207,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
         }
 
         @keyframes heroShimmer {
-            0% { opacity: 0.85; }
-            100% { opacity: 0.65; }
+            0% {
+                opacity: 0.85;
+            }
+
+            100% {
+                opacity: 0.65;
+            }
         }
 
         .hero-content {
@@ -154,7 +232,7 @@
             font-size: 4.5rem;
             font-weight: 800;
             margin-bottom: 2rem;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1.2s ease-out;
             background: linear-gradient(45deg, #fff, #e2e8f0, #fff, #cbd5e0);
             -webkit-background-clip: text;
@@ -165,8 +243,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero-subtitle {
@@ -175,20 +260,33 @@
             opacity: 0.95;
             animation: fadeInUp 1.2s ease-out 0.3s both;
             line-height: 1.8;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-icon {
             font-size: 6rem;
             margin-bottom: 2rem;
             animation: bounce 3s infinite;
-            filter: drop-shadow(0 0 30px rgba(255,255,255,0.8));
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8));
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
-            40% { transform: translateY(-15px) scale(1.1); }
-            60% { transform: translateY(-8px) scale(1.05); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            40% {
+                transform: translateY(-15px) scale(1.1);
+            }
+
+            60% {
+                transform: translateY(-8px) scale(1.05);
+            }
         }
 
         @keyframes fadeInUp {
@@ -196,6 +294,7 @@
                 opacity: 0;
                 transform: translateY(60px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -230,13 +329,18 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
             animation: shimmer 4s infinite;
         }
 
         @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .stats-grid {
@@ -253,7 +357,7 @@
             background: rgba(255, 255, 255, 0.12);
             border-radius: 25px;
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -266,14 +370,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .stat-item:hover {
             transform: translateY(-15px) scale(1.08);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
         }
 
         .stat-item:hover::before {
@@ -288,14 +392,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
-            text-shadow: 0 0 40px rgba(255,255,255,0.6);
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
             position: relative;
             z-index: 2;
         }
 
         .stat-label {
             font-size: 1.3rem;
-            color: rgba(255,255,255,0.95);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 600;
             position: relative;
             z-index: 2;
@@ -326,14 +430,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .category-section:hover {
             transform: translateY(-12px);
-            box-shadow: 0 35px 90px rgba(0,0,0,0.25);
+            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.25);
         }
 
         .category-section:hover::before {
@@ -356,7 +460,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
         }
 
@@ -367,18 +471,30 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             animation: slideAcross 3s ease-in-out infinite;
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes slideAcross {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
+
+            0%,
+            100% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(100%);
+            }
         }
 
         .category-title {
@@ -390,13 +506,13 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
         }
 
         .category-icon {
             font-size: 3rem;
             opacity: 0.95;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
         }
 
         /* Data Items */
@@ -409,9 +525,9 @@
             border-radius: 25px;
             padding: 3rem;
             margin-bottom: 2.5rem;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
             transition: all 0.5s ease;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -430,7 +546,7 @@
 
         .data-item:hover {
             transform: translateX(20px) translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
             border-left: 6px solid #667eea;
         }
 
@@ -468,7 +584,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.8s ease;
         }
 
@@ -521,7 +637,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
             transition: left 0.8s ease;
         }
 
@@ -555,8 +671,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
         }
 
         /* Responsive Design */
@@ -564,15 +687,15 @@
             .hero-title {
                 font-size: 3.5rem;
             }
-            
+
             .container {
                 padding: 3rem 1.5rem;
             }
-            
+
             .stats-bar {
                 padding: 3rem 2rem;
             }
-            
+
             .items-container {
                 padding: 3rem 2rem;
             }
@@ -582,26 +705,26 @@
             .hero-title {
                 font-size: 2.8rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.4rem;
             }
-            
+
             .hero-icon {
                 font-size: 4rem;
             }
-            
+
             .item-header {
                 flex-direction: column;
                 gap: 1.5rem;
                 align-items: center;
                 text-align: center;
             }
-            
+
             .item-title {
                 margin: 0;
             }
-            
+
             .action-button {
                 width: 100%;
                 justify-content: center;
@@ -615,11 +738,11 @@
             .stat-number {
                 font-size: 3.5rem;
             }
-            
+
             .category-title {
                 font-size: 2rem;
             }
-            
+
             .data-item {
                 padding: 2.5rem 2rem;
             }
@@ -629,29 +752,29 @@
             .hero-title {
                 font-size: 2.2rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .hero-banner {
                 padding: 6rem 0;
             }
-            
+
             .category-title {
                 font-size: 1.8rem;
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .items-container {
                 padding: 2rem 1.5rem;
             }
-            
+
             .data-item {
                 padding: 2rem 1.5rem;
             }
-            
+
             .container {
                 padding: 2rem 1rem;
             }
@@ -674,21 +797,24 @@
             display: inline-block;
             width: 24px;
             height: 24px;
-            border: 4px solid rgba(255,255,255,.3);
+            border: 4px solid rgba(255, 255, 255, .3);
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 1.2s ease-in-out infinite;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Background Animation -->
     <div class="background-animation"></div>
-    
+
     <!-- Floating Particles -->
     <div class="particles">
         <div class="particle"></div>
@@ -721,11 +847,11 @@
         <div class="stats-bar scroll-animate">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">43</div>
+                    <div class="stat-number">37</div>
                     <div class="stat-label">รายการข้อมูล</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">7</div>
+                    <div class="stat-number">13</div>
                     <div class="stat-label">หมวดหมู่หลัก</div>
                 </div>
                 <div class="stat-item">
@@ -741,7 +867,7 @@
                 <div class="category-header">
                     <h2 class="category-title">
                         <i class="fas fa-info-circle category-icon"></i>
-                        ข้อมูลพื้นฐาน
+                        1. ข้อมูลพื้นฐาน
                     </h2>
                 </div>
                 <div class="items-container">
@@ -751,11 +877,13 @@
                             <h3 class="item-title">โครงสร้าง</h3>
                         </div>
                         <p class="item-description">
-                            แสดงแผนผังแสดงโครงสร้างการแบ่งส่วนราชการของสถานศึกษา แสดงตำแหน่งที่สำคัญและการแบ่งส่วนงานภายใน ยกตัวอย่างเช่น ฝ่าย งาน แผนกวิชา เป็นต้น
+                            - แสดงแผนผัง แสดงโครงสร้างการแบ่งส่วนราชการของสถานศึกษา <br>
+                            - แสดงตําแหน่งที่สําคัญและการแบ่งส่วนงานภายในยกตัวอย่าง เช่น ฝ่าย งาน แผนกวิชา เป็นต้น
                         </p>
-                        <a href="https://drive.google.com/file/d/1L_vll8GYvBzoWWS_hGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
-                            <i class="fas fa-download"></i>
-                            ดาวน์โหลดข้อมูล O1
+                        <a href="https://drive.google.com/drive/folders/12PZEHFJDRY5ABHoMnthG4JWHqAWDRCkG?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-clipboard-list"></i>
+                            ดูข้อมูล O1
                         </a>
                     </div>
 
@@ -765,9 +893,16 @@
                             <h3 class="item-title">ข้อมูลผู้บริหาร</h3>
                         </div>
                         <p class="item-description">
-                            แสดงข้อมูลของผู้อำนวยการสถานศึกษาและรองผู้อำนวยการสถานศึกษา อย่างน้อย ประกอบด้วยดังนี้
+                            - แสดงข้อมูลของผู้อํานวยการสถานศึกษาและรองผู้อํานวยการสถานศึกษา อย่างน้อย ประกอบด้วย ดังนี้
+                            <br>
+                            1. ชื่อ-นามสกุล <br>
+                            2. ตําแหน่ง <br>
+                            3. รูปถ่าย <br>
+                            4. ช่องทางการติดต่อ เช่น หมายเลขโทรศัพท์ หรือ Line หรือ E-mail เป็นต้น
+                            (ช่องทางใดช่องทางหนึ่ง)
                         </p>
-                        <a href="https://www.pbtc.ac.th/pbtc2021/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81/" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1bniptEF5wCWX2LgE3eTmIPEsPWLmXlF9?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-users"></i>
                             ดูข้อมูล O2
                         </a>
@@ -779,37 +914,50 @@
                             <h3 class="item-title">อำนาจหน้าที่</h3>
                         </div>
                         <p class="item-description">
-                            แสดงข้อมูลหน้าที่และอำนาจของสถานศึกษาตามที่กฎหมายกำหนด เช่น คำสั่งมอบหมายหน้าที่ของสถานศึกษา ระเบียบสำนักงานคณะกรรมการการอาชีวศึกษา ว่าด้วยการบริหารสถานศึกษา เป็นต้น
+                            - แสดงข้อมูลหน้าที่และอํานาจของสถานศึกษาตามที่ กฎหมายกําหนด เช่น คําสั่งมอบหมายหน้าที่ของ
+                            สถานศึกษา ระเบียบสํานักงานคณะกรรมการการ อาชีวศึกษา ว่าด้วยการบริหารสถานศึกษา เป็นต้น
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1Y65tVABSyvczF5POKsWn-yAPtx8mJsuV?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1WcCErj2NbSlQKDjgOQw0hCkqySzLJfkT?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-gavel"></i>
-                            ดาวน์โหลดข้อมูล O3
+                            ดูข้อมูล O3
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O4</span>
-                            <h3 class="item-title">แผนพัฒนาสถานศึกษา หรือแผนปฏิบัติราชการ ประจำปี</h3>
+                            <h3 class="item-title">แผนพัฒนา สถานศึกษา</h3>
                         </div>
                         <p class="item-description">
-                            แผนพัฒนาสถานศึกษา หรือแผนปฏิบัติราชการ ประจำปี
+                            - แสดงแผนการดําเนินภารกิจของสถานศึกษาที่มีระยะมากกว่า 1 ปี <br>
+                            - มีข้อมูลรายละเอียดของแผนฯ อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. ยุทธศาสตร์หรือแนวทาง <br>
+                            2. เป้าหมาย <br>
+                            3. ตัวชี้วัด <br>
+                            - เป็นแผนที่มีระยะเวลาบังคับใช้ครอบคลุมปีงบประมาณปัจจุบัน <br>
                         </p>
-                        <a href="https://www.pbtc.ac.th/pbtc2021/%e0%b8%87%e0%b8%b2%e0%b8%99%e0%b8%a7%e0%b8%b2%e0%b8%87%e0%b9%81%e0%b8%9c%e0%b8%99%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b8%a1%e0%b8%b7/" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1I2PblN6wHV--6wmdtMrsOne3_uDFw452?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-clipboard-list"></i>
-                            ดูข้อมูl O4
+                            ดูข้อมูล O4
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O5</span>
-                            <h3 class="item-title">ข้อมูลติดต่อหน่วยงาน</h3>
+                            <h3 class="item-title">ข้อมูลการติดต่อ</h3>
                         </div>
                         <p class="item-description">
-                            แสดงข้อมูลการติดต่อของสถานศึกษา
+                            - แสดงข้อมูลการติดต่อของสถานศึกษา อย่างน้อยประกอบด้วย ดังนี้ <br>
+                            1. ที่อยู่สถานศึกษา <br>
+                            2. หมายเลขโทรศัพท์ <br>
+                            3. E-mail <br>
+                            4. แผนที่ตั้ง <br>
                         </p>
-                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/18QhoWZq41XHaOUViFiDAaG1bju4oWdMj?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-phone"></i>
                             ดูข้อมูล O5
                         </a>
@@ -821,64 +969,14 @@
                             <h3 class="item-title">กฎหมายที่เกี่ยวข้อง</h3>
                         </div>
                         <p class="item-description">
-                            แสดงกฎหมายที่เกี่ยวข้องกับการดำเนินงานหรือการปฏิบัติงานของสถานศึกษา เช่น แผนการศึกษาแห่งชาติ ประกาศกระทรวงศึกษาธิการการใช้มาตรฐานการอาชีวศึกษา ระดับ ปวช. และปวส. เป็นต้น
+                            - แสดงกฎหมายที่เกี่ยวข้องกับการดําเนินงานหรือการปฏิบัติงานของสถานศึกษา เช่น
+                            แผนการศึกษาแห่งชาติ ประกาศกระทรวงศึกษาธิการ การใช้มาตรฐานการ อาชีวศึกษา ระดับ ปวช.และระดับ
+                            ปวส. เป็นต้น
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1Mo284i7mVSNWv3u-FdTHxsLZj5C6vB8B?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1TYWRjDkQAE0bfuYW931CvJ-dVx4fRFGS?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-balance-scale"></i>
-                            ดาวน์โหลดข้อมูล O6
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- การประชาสัมพันธ์ -->
-            <div class="category-section scroll-animate">
-                <div class="category-header">
-                    <h2 class="category-title">
-                        <i class="fas fa-bullhorn category-icon"></i>
-                        การประชาสัมพันธ์
-                    </h2>
-                </div>
-                <div class="items-container">
-                    <div class="data-item">
-                        <div class="item-header">
-                            <span class="item-code">O7</span>
-                            <h3 class="item-title">ข่าวประชาสัมพันธ์</h3>
-                        </div>
-                        <p class="item-description">
-                            แสดงข้อมูลข่าวสารต่าง ๆ ที่เกี่ยวข้อง กับการดำเนินงานตามอำนาจหน้าที่ หรือภารกิจของหน่วยงาน โดยเป็น ข่าวสารที่เกิดขึ้นในปีงบประมาณปัจจุบัน
-                        </p>
-                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
-                            <i class="fab fa-facebook"></i>
-                            ข่าวประชาสัมพันธ์
-                        </a>
-                    </div>
-
-                    <div class="data-item">
-                        <div class="item-header">
-                            <span class="item-code">O8</span>
-                            <h3 class="item-title">Q&A (ถาม-ตอบ)</h3>
-                        </div>
-                        <p class="item-description">
-                            แสดงตำแหน่งบนเว็บไซต์ของหน่วยงานที่บุคคลภายนอกสามารถสอบถามข้อมูลต่างๆได้ และหน่วยงานสามารถสื่อสารให้คำตอบกับผู้สอบถามได้ โดยมีลักษณะเป็นการสื่อสารได้สองทางบนหน้าเว็บไซต์ของสถานศึกษา (Q&A)
-                        </p>
-                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
-                            <i class="fas fa-comments"></i>
-                            ติดต่อเรา
-                        </a>
-                    </div>
-
-                    <div class="data-item">
-                        <div class="item-header">
-                            <span class="item-code">O9</span>
-                            <h3 class="item-title">Social Network</h3>
-                        </div>
-                        <p class="item-description">
-                            แสดงตำแหน่งบนเว็บไซต์ของหน่วยงานที่สามารถเชื่อมโยงไปยัง เครือข่ายสังคมออนไลน์ของสถานศึกษา
-                        </p>
-                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
-                            <i class="fab fa-facebook"></i>
-                            Facebook
+                            ดูข้อมูล O6
                         </a>
                     </div>
                 </div>
@@ -888,20 +986,106 @@
             <div class="category-section scroll-animate">
                 <div class="category-header">
                     <h2 class="category-title">
+                        <i class="fas fa-bullhorn category-icon"></i>
+                        2. การบริหารงาน
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O7</span>
+                            <h3 class="item-title">ข่าวประชาสัมพันธ์</h3>
+                        </div>
+                        <p class="item-description">
+                            - แสดงข้อมูลข่าวสารต่าง ๆ ที่เกี่ยวข้องกับการดําเนินงาน
+                            ตามอํานาจหน้าที่หรือภารกิจของสถานศึกษาเป็นข้อมูล
+                            ข่าวสารที่เกิดขึ้นปีงบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1PwjJo4y090abNHxlLEkGMRPDf44uQ6kw?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-clipboard-list"></i>
+                            ดูข้อมูล 07
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O8</span>
+                            <h3 class="item-title">Q&A (ถาม-ตอบ)</h3>
+                        </div>
+                        <p class="item-description">
+                            - แสดงตําแหน่งบนเว็บไซต์ของสถานศึกษาที่
+                            บุคคลภายนอกสามารถสอบถามข้อมูลต่าง ๆ ได้ และ
+                            หน่วยงานสามารถสื่อสารให้คําตอบกับผู้สอบถามได้ โดย
+                            มีลักษณะเป็นการสื่อสารได้สองทางบนหน้าเว็บไซต์ของ
+                            สถานศึกษา (Q&A) เช่น Web board, กล่องข้อความ
+                            ถาม-ตอบ, Chat, Chatbot เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/199fWzXgjifouX8xm0B0eS7_Xe6wPAzQA?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-comments"></i>
+                            ดูข้อมูล 08
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- การบริหารงาน -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-bullhorn category-icon"></i>
+                        3. การปฏิสัมพันธ์ข้อมูล
+                    </h2>
+                </div>
+                <div class="items-container">
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O9</span>
+                            <h3 class="item-title">Social Network</h3>
+                        </div>
+                        <p class="item-description">
+                            - แสดงตําแหน่งบนเว็บไซต์ของสถานศึกษาที่สามารถ
+                            เชื่อมโยงไปยังเครือข่ายสังคมออนไลน์ของสถานศึกษา
+                            ยกตัวอย่าง เช่น Facebook, Twitter, Instagram,
+                            TikTok เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1utBEaA9Itk5TtkFU4dJa2cCc_G_FoVzM?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fab fa-facebook"></i>
+                            ดูข้อมูล 09
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- การดําเนินงาน -->
+
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
                         <i class="fas fa-cogs category-icon"></i>
-                        การบริหารงาน
+                        4. การดําเนินงาน
                     </h2>
                 </div>
                 <div class="items-container">
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O10</span>
-                            <h3 class="item-title">แผนปฏิบัติการประจำปี</h3>
+                            <h3 class="item-title">แผนดําเนินงานประจําปี</h3>
                         </div>
                         <p class="item-description">
-                            แสดงแผนการดำเนินงานภารกิจของหน่วยงานที่มีระยะ 1 ปี มีข้อมูลรายละเอียดของแผนฯอย่างน้อย ประกอบด้วย 1.โครงการหรือกิจกรรม 2.งบประมาณที่ใช้ 3.ระยะเวลาในการดำเนินงาน -เป็นแผนที่มีระยะเวลาบังคับใช้ในปีงบประมาณปัจจุบัน
+                            - แสดงแผนการดําเนินภารกิจของสถานศึกษาที่มีระยะ 1 ปี <br>
+                            - มีข้อมูลรายละเอียดของแผน ฯ อย่างน้อย ประกอบด้วย
+                            ดังนี้ <br>
+                            1. โครงการหรือกิจกรรม <br>
+                            2. งบประมาณที่ใช้ <br>
+                            3. ระยะเวลาที่ใช้ในการดําเนินการ <br>
+                            - เป็นแผนที่มีระยะเวลาบังคับใช้ในปีงบประมาณปัจจุบัน <br>
                         </p>
-                        <a href="https://www.pbtc.ac.th/pbtc2021/%e0%b8%87%e0%b8%b2%e0%b8%99%e0%b8%a7%e0%b8%b2%e0%b8%87%e0%b9%81%e0%b8%9c%e0%b8%99%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b8%a1%e0%b8%b7/" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1awYc9cdH2qQwl_VO24VcK-7Js-YBAWMn?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-tasks"></i>
                             ดูข้อมูล O10
                         </a>
@@ -910,352 +1094,857 @@
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O11</span>
-                            <h3 class="item-title">รายงานการกำกับติดตามการดำเนินงานประจำปีรอบ 6 เดือน</h3>
+                            <h3 class="item-title">รายงานผลการดําเนินงานประจําปี</h3>
                         </div>
                         <p class="item-description">
-                            แสดงความก้าวหน้าในการดำเนินงานตามแผนประจำปีในข้อ O10 -มีเนื้อหาหรือรายละเอียด ความก้าวหน้า
+                            - แสดงผลการดําเนินงานตามแผนดําเนินงานประจําปี <br>
+                            - มีข้อมูลรายละเอียดสรุปผลการดําเนินงานย้อนหลัง
+                            1 ปีงบประมาณ อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. ผลการดําเนินการโครงการหรือกิจกรรม <br>
+                            2. ผลการใช้จ่ายงบประมาณ <br>
+                            3. ปัญหา อุปสรรค และข้อเสนอ แนะ
+                            (หากไม่มี ให้เขียนบอกว่า “ไม่มีปัญหา อุปสรรค และข้อเสนอแนะ”
+                            แต่ต้องปรากฏรายละเอียดครบทั้ง 3 องค์ประกอบ)
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1CqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/11bXeBRL7dLUflXUOmsDV_9eY7o7bnpy-?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-chart-line"></i>
-                            ดาวน์โหลดข้อมูล O11
-                        </a>
-                    </div>
-
-                    <div class="data-item">
-                        <div class="item-header">
-                            <span class="item-code">O12</span>
-                            <h3 class="item-title">รายงานผลการดำเนินงานประจำปี</h3>
-                        </div>
-                        <p class="item-description">
-                            แสดงรายงานผลการดำเนินงานตามแผนปฏิบัติการประจำปี หรือแสดงรายงานการประเมินผลการปฏิบัติราชการประจำปี
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1DqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
-                            <i class="fas fa-file-alt"></i>
-                            ดาวน์โหลดข้อมูล O12
+                            ดูข้อมูล O11
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- การให้บริการ -->
+
+            <!-- การปฏิบัติหน้าที่ -->
             <div class="category-section scroll-animate">
                 <div class="category-header">
                     <h2 class="category-title">
                         <i class="fas fa-hands-helping category-icon"></i>
-                        การให้บริการ
+                        5. การปฏิบัติหน้าที่
                     </h2>
                 </div>
+
+
                 <div class="items-container">
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O12</span>
+                            <h3 class="item-title">คู่มือหรือมาตรฐานการปฏิบัติงาน
+                        </div>
+                        <p class="item-description">
+                            - แสดงคู่มือหรือแนวทางการปฏิบัติงานที่เจ้าหน้าที่ของ
+                            สถาน ศึกษาที่ใช้ยึดถือปฏิบัติให้เป็นมาตรฐานเดียวกัน <br>
+                            - มีข้อมูลรายละเอียดของการปฏิบัติงาน อย่างน้อย 1 คู่มือ
+                            ซึ่งเป็นคู่มือปฏิบัติภารกิจใด สําหรับเจ้าหน้าที่หรือพนักงาน
+                            ตําแหน่งใด กําหนดวิธีการขั้นตอนการปฏิบัติอย่างไร เช่น คู่มือ
+                            การปฏิบัติงานสําหรับงานพัสดุ งานการเงิน เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1rpU9tgThbhCBzRAEqu8AiPvXAuCS9Ztk?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O12
+                        </a>
+                    </div>
+
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O13</span>
-                            <h3 class="item-title">คู่มือหรือมาตรฐานการปฏิบัติงาน</h3>
+                            <h3 class="item-title">คู่มือหรือมาตรฐานการให้บริการ
                         </div>
                         <p class="item-description">
-                            แสดงคู่มือการปฏิบัติงาน หรือมาตรฐานการปฏิบัติงาน สำหรับงานบริการที่หน่วยงานให้บริการประชาชน
+                            - แสดงคู่มือการให้บริการประชาชนหรือคู่มือแนวทาง
+                            การปฏิบัติที่ผู้รับบริการหรือผู้มาติดต่อกับสถานศึกษา
+                            ซึ่งใช้เป็นข้อมูลในการขอรับบริการหรือติดต่อกับสถานศึกษา <br>
+                            - มีข้อมูลรายละเอียดของการปฏิบัติ อย่างน้อย 1 คู่มือ
+                            ซึ่งกําหนดวิธีการขั้นตอนการให้บริการหรือการติดต่อ
+                            อย่างไร ตัวอย่างเช่น คู่มือการให้ บริการงานการเงิน, คู่มือ
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1EqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/14UNNciSQlC34o169QjW2iIBLMmEXVfFu?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-book"></i>
-                            ดาวน์โหลดข้อมูล O13
+                            ดูข้อมูล O13
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O14</span>
-                            <h3 class="item-title">ข้อมูลเชิงสถิติการให้บริการ</h3>
+                            <h3 class="item-title">ข้อมูลเชิงสถิติการให้บริการ
                         </div>
                         <p class="item-description">
-                            แสดงข้อมูลเชิงสถิติการให้บริการแก่ประชาชน เช่น จำนวนผูร้ับบริการ ระยะเวลาในการให้บริการ ความพึงพอใจของผู้รับบริการ เป็นต้น
+                            - แสดงข้อมูลสถิติการให้บริการของสถานศึกษา
+                            - สามารถจัดทําข้อมูลเป็นแบบรายเดือน หรือ รายไตร
+                            มาส หรือราย 6 เดือน ที่มีข้อมูลครอบคลุมในระยะเวลา
+                            6 เดือนแรกของปีงบประมาณปัจจุบัน <br>
+                            - เป็นข้อมูลที่เกิดจากการให้บริการจากสถานศึกษา เช่น
+                            จํานวนผู้ใช้บริการ Fix it, ช่วงเทศกาลปีใหม่, จํานวน
+                            ผู้ใช้บริการห้องสมุดสถานศึกษา เป็นต้น
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1FqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1QveZmlMcqX5nBhjPsbM_XHSNL0iQfhYh?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-chart-bar"></i>
-                            ดาวน์โหลดข้อมูล O14
+                            ดูข้อมูล O14
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O15</span>
-                            <h3 class="item-title">รายงานผลการสำรวจความพึงพอใจการให้บริการ</h3>
+                            <h3 class="item-title">รายงานผลการสํารวจความพึงพอใจการให้บริการ
                         </div>
                         <p class="item-description">
-                            แสดงรายงานผลการสำรวจความพึงพอใจของประชาชนที่ได้รับบริการจากหน่วยงาน
+                            - แสดงผลสํารวจความพึงพอใจการให้บริการของ
+                            สถานศึกษา เช่น ความพึงพอใจต่อการจัดการเรียนรู้ของ
+                            ผู้สอน, ความพึงพอใจต่อการเข้าร่วมโครงการ, ความ
+                            พึงพอใจการจัดงานกีฬาสี เป็นต้น <br>
+                            - เป็นรายงานผลย้อนหลัง 1 ปีงบประมาณ
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1GqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1c2PfnjDnIDpV7NjI5YxM6JP8Q7YIUEQS?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-smile"></i>
-                            ดาวน์โหลดข้อมูล O15
+                            ดูข้อมูล O15
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O16</span>
+                            <h3 class="item-title">E-Service
+                        </div>
+                        <p class="item-description">
+                            - แสดงช่องทางการให้บริการข้อมูลหรือธุรกรรมภาครัฐที่
+                            สอดคล้องกับภารกิจของหน่วยงานผ่านเครือข่าย
+                            อินเตอร์เน็ต โดยผู้ขอรับบริการไม่จําเป็นต้องเดินทาง
+                            มายังสถานศึกษา เช่น การร้องเรียน ร้องทุกข์,
+                            การประสานงานใช้สถานที่, ระบบ ศธ02, ระบบ RMS
+                            เป็นต้น <br>
+                            - สามารถเข้าถึงหรือเชื่อมโยงไปยังช่องทางข้างต้นได้จาก
+                            เว็บไซต์หลักของสถานศึกษา
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1c2PfnjDnIDpV7NjI5YxM6JP8Q7YIUEQS?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-smile"></i>
+                            ดูข้อมูล O16
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- การบริหารงานบุคคล -->
+            <!-- การบริหารเงินงบประมาณ ได้แก่ แผนการใช้จ่ายงบประมาณประจําปีและการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ -->
+
             <div class="category-section scroll-animate">
                 <div class="category-header">
                     <h2 class="category-title">
                         <i class="fas fa-users category-icon"></i>
-                        การบริหารงานบุคคล
+                        6. แผนการใช้จ่ายงบประมาณประจําปี
                     </h2>
                 </div>
                 <div class="items-container">
-                    <div class="data-item">
-                        <div class="item-header">
-                            <span class="item-code">O16</span>
-                            <h3 class="item-title">นโยบายการบริหารทรัพยากรบุคคล</h3>
-                        </div>
-                        <p class="item-description">
-                            แสดงนโยบาย แผน หรือมาตรการในการบริหารและพัฒนาทรัพยากรบุคคล เช่น นโยบายการสรรหา การพัฒนา การเลื่อนขั้น การเลื่อนตำแหน่ง เป็นต้น
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1HqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
-                            <i class="fas fa-user-tie"></i>
-                            ดาวน์โหลดข้อมูล O16
-                        </a>
-                    </div>
+
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O17</span>
-                            <h3 class="item-title">หลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล</h3>
+                            <h3 class="item-title">แผนการใช้จ่ายงบประมาณประจําปี
                         </div>
                         <p class="item-description">
-                            แสดงหลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล เช่น หลักเกณฑ์การสรรหาบุคลากร การประเมินผลการปฏิบัติราชการ การพัฒนาบุคลากร เป็นต้น
+                            - แสดงแผนการใช้จ่ายงบประมาณของสถานศึกษาที่มี
+                            ระยะ 1 ปี มีข้อมูลรายละเอียดของแผนฯ อย่างน้อย
+                            ประกอบด้วย ดังนี้ <br>
+                            1. งบประมาณตามแหล่งที่ได้รับการจัดสรร <br>
+                            2. งบประมาณตามประเภทรายการใช้จ่าย <br>
+                            - เป็นแผนที่มีระยะเวลาบังคับใช้ในปีงบประมาณปัจจุบัน
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1IqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1MPRuZcRxhdzbb9LRYnybHg-paT_Ez2es?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-clipboard-check"></i>
-                            ดาวน์โหลดข้อมูล O17
+                            ดูข้อมูล O17
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O18</span>
-                            <h3 class="item-title">รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</h3>
+                            <h3 class="item-title">ผลการใช้จ่ายงบประมาณประจําปี
                         </div>
                         <p class="item-description">
-                            แสดงรายงานผลการดำเนินการตามนโยบาย แผน หรือมาตรการในการบริหารและพัฒนาทรัพยากรบุคคล
+                            - แสดงผลการดําเนินงานตามแผนการใช้จ่ายงบประมาณ
+                            ประจําปี <br>
+                            - มีข้อมูลรายละเอียดสรุปผลการใช้จ่ายงบประมาณ
+                            อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1 ผลการใช้งบประมาณตามประเภทรายการใช้จ่าย
+                            ได้แก่งบอุดหนุน งบลงทุน งบดําเนินงาน งบบุคลากร
+                            งบรายจ่ายอื่น <br>
+                            2. ปรากฎแผนงาน หรือ ผลลิต หรือ โครงการ หรือ
+                            รายการ ในการใช้จ่ายงบประมาณตามประเภทรายการใช้จ่าย <br>
+                            - เป็นรายงานผลย้อนหลัง 1 ปีงบประมาณ
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1JqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1zmTVQnS29p_sOsZo9f3RbepKYLUvRRlu?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-user-graduate"></i>
-                            ดาวน์โหลดข้อมูล O18
+                            ดูข้อมูล O18
                         </a>
                     </div>
                 </div>
             </div>
+
+
 
             <!-- การบริหารการเงิน การคลัง และพัสดุ -->
             <div class="category-section scroll-animate">
                 <div class="category-header">
                     <h2 class="category-title">
                         <i class="fas fa-money-bill-wave category-icon"></i>
-                        การบริหารการเงิน การคลัง และพัสดุ
+                        7. การจัดซื้อจัดจ้างหรือการจัดหาพัสดุ
                     </h2>
                 </div>
                 <div class="items-container">
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O19</span>
-                            <h3 class="item-title">แผนการใช้จ่ายงบประมาณประจำปี</h3>
+                            <h3 class="item-title">แผนการจัดซื้อจัดจ้างหรือแผนการจัดหาพัสดุ
                         </div>
                         <p class="item-description">
-                            แสดงแผนการใช้จ่ายงบประมาณประจำปี แยกตามแหล่งงบประมาณ หมวดรายจ่าย แผนงาน เป็นต้น
+                            - แสดงแผนการจัดซื้อจัดจ้างหรือแผนการจัดหาพัสดุ
+                            ตามที่สถานศึกษาจะต้องดําเนินการตามพระราชบัญญัติ
+                            การจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ 2560 <br>
+                            - เป็นข้อมูลการจัดซื้อจัดจ้างในปีงบประมาณปัจจุบัน
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1KqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1WWhIzTEMgLnxNVAzmBBxiSo5cQc54mBB?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-calculator"></i>
-                            ดาวน์โหลดข้อมูล O19
+                            ดูข้อมูล O19
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O20</span>
-                            <h3 class="item-title">รายงานการใช้จ่ายงบประมาณ</h3>
+                            <h3 class="item-title">ประกาศต่าง ๆเกี่ยวกับการจัดซื้อจัดจ้างหรือการจัดหาพัสดุ
                         </div>
                         <p class="item-description">
-                            แสดงรายงานการใช้จ่ายงบประมาณตามข้อมูลที่ปรากฏในระบบ GFMIS หรือระบบอื่นๆ ที่เกี่ยวข้อง
+                            - แสดงประกาศการจัดซื้อจัดจ้างตามที่สถานศึกษา
+                            จะต้องดําเนิน การตามพระราชบัญญัติการจัดซื้อจัดจ้าง
+                            และการบริหารพัสดุภาครัฐ พ.ศ 2560 เช่น ประกาศ
+                            เชิญชวน, ประกาศผลการจัดซื้อจัดจ้าง เป็นต้น <br>
+                            - เป็นข้อมูลจัดซื้อจัดจ้างในปีงบประมาณปัจจุบัน
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1LqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1xpT1a6mAl09COoHohLfMeP-ePtXSzVmM?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-file-invoice-dollar"></i>
-                            ดาวน์โหลดข้อมูล O20
+                            ดูข้อมูล O20
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
                             <span class="item-code">O21</span>
-                            <h3 class="item-title">แผนการจัดซื้อจัดจ้างประจำปี</h3>
+                            <h3 class="item-title">สรุปผลการจัดซื้อ จัดจ้างหรือจัดหาพัสดุรายเดือน
                         </div>
                         <p class="item-description">
-                            แสดงแผนการจัดซื้อจัดจ้างประจำปีงบประมาณ เว้นแต่แผนการจัดซื้อจัดจ้างที่อาจกระทบต่อความมั่นคงของประเทศ
+                            - แสดงสรุปผลการจัดซื้อจัดจ้างของสถานศึกษา <br>
+                            - มีข้อมูลรายละเอียดผลการจัดซื้อจัดจ้าง อย่างน้อย
+                            ประกอบด้วย ดังนี้ <br>
+                            1. ชื่อหน่วยงาน <br>
+                            2. งานที่ซื้อหรือจ้าง<br>
+                            3. วงเงินที่ซื้อหรือจ้าง <br>
+                            4. วิธีซื้อหรือจัดจ้าง <br>
+                            5. รายชื่อผู้เสนอราคา <br>
+                            6. ราคาที่เสนอ <br>
+                            7. รายชื่อผู้ประกอบการที่ได้คัดเลือก <br>
+                            8. ราคาที่ตกลงซื้อหรือจ้างคัดเลือก <br>
+                            9. เหตุผลที่
+                            คัดเลือกโดยสรุป <br>
+                            10. เลขที่และวันที่ของสัญญา หรือ
+                            ข้อตกลงในการซื้อหรือจ้าง หรือ ตามแบบฟอร์มระบบ
+                            จัดซื้อจัดจ้างภาครัฐของกรมบัญชีกลาง <br>
+                            - เป็นข้อมูลแบบรายเดือนที่มีข้อมูลครอบคลุมใน
+                            ระยะเวลา 6 เดือนแรกของปีงบประมาณปัจจุบัน
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1MqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1MqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing"
+                            target="_blank" class="action-button">
                             <i class="fas fa-shopping-cart"></i>
-                            ดาวน์โหลดข้อมูl O21
+                            ดูข้อมูล 021
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O22 </span>
+                            <h3 class="item-title">รายงานผลการจัดซื้อจัดจ้างหรือการจัดหาพัสดุประจําปี
+                        </div>
+                        <p class="item-description">
+                            - แสดงผลการจัดซื้อจัดจ้างของสถานศึกษา <br>
+                            - มีข้อมูลรายละเอียดผลการจัดซื้อจัดจ้าง อย่างน้อย
+                            ประกอบด้วย ดังนี้ <br>
+                            1. ชื่อหน่วยงาน <br>
+                            2. งานที่ซื้อหรือจ้าง <br>
+                            3. วงเงินที่ซื้อหรือจ้าง <br>
+                            4. วิธีซื้อหรือจัดจ้าง <br>
+                            5. รายชื่อผู้เสนอราคา <br>
+                            6. ราคาที่เสนอ <br>
+                            7. รายชื่อผู้ประกอบการที่ได้คัดเลือก <br>
+                            8. ราคาที่ตกลงซื้อหรือจ้างคัดเลือก <br>
+                            9. เหตุผลที่คัดเลือกโดยสรุป <br>
+                            10. เลขที่และวันที่ของสัญญาหรือข้อตกลงในการซื้อหรือจ้าง หรือ
+                            ตามแบบฟอร์มระบบจัดซื้อจัดจ้างภาครัฐของกรมบัญชีกลาง<br>
+                            - เป็นรายงานผลย้อนหลัง 1 ปีงบประมาณ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/11Ph0mPmAVNyh3o_-rBMQNEs8iigy_m8_?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-shopping-cart"></i>
+                            ดูข้อมูล 022
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- การตรวจสอบ -->
+            <!-- การบริหารและพัฒนาทรัพยากรบุคคล -->
             <div class="category-section scroll-animate">
                 <div class="category-header">
                     <h2 class="category-title">
                         <i class="fas fa-search category-icon"></i>
-                        การตรวจสอบ
+                        8. การบริหารและพัฒนาทรัพยากรบุคคล
                     </h2>
                 </div>
                 <div class="items-container">
                     <div class="data-item">
                         <div class="item-header">
-                            <span class="item-code">O22</span>
-                            <h3 class="item-title">รายงานผลการตรวจสอบภายในประจำปี</h3>
+                            <span class="item-code">O23</span>
+                            <h3 class="item-title">การดําเนินโครงการ/กิจกรรมที่แสดงถึงการพัฒนาทรัพยากรบุคคล</h3>
                         </div>
                         <p class="item-description">
-                            แสดงรายงานผลการตรวจสอบภายใน หรือรายงานการสอบทานการปฏิบัติราชการประจำปีที่ผ่านมา
+                            - แสดงการดําเนินโครงการ/กิจกรรมที่แสดงถึงการพัฒนาทรัพยากรบุคคลจํานวนไม่น้อยกว่า 3
+                            โครงการ/กิจกรรม
+                            อย่างน้อย ประกอบด้วยรายละเอียด ดังนี้ <br>
+                            1. โครงการ/กิจกรรม <br>
+                            2. งบประมาณ <br>
+                            3. กลุ่มเป้าหมาย <br>
+                            4. ระยะเวลาดําเนินโครงการ/กิจกรรม <br>
+                            - เป็นการดําเนินการในปีงบประมาณปัจจุบัน
                         </p>
-                        <a href="https://drive.google.com/drive/folders/1NqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                        <a href="https://drive.google.com/drive/folders/1PXvNCws0oApqeTWU_YIKv_Ou6XsakIU_?usp=drive_link"
+                            target="_blank" class="action-button">
                             <i class="fas fa-file-contract"></i>
-                            ดาวน์โหลดข้อมูล O22
+                            ดูข้อมูล O23
                         </a>
                     </div>
 
                     <div class="data-item">
                         <div class="item-header">
-                            <span class="item-code">O23</span>
-                            <h3 class="item-title">รายงานการติดตามและประเมินผล</h3>
+                            <span class="item-code">O24</span>
+                            <h3 class="item-title">หลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล</h3>
                         </div>
                         <p class="item-description">
-                            แสดงรายงานการติดตามและประเมินผลการดำเนินงานตามภารกิจของสถานศึกษา
+                            - แสดงหลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล
+                            ที่ยังใช้บังคับในสถานศึกษา ปีงบประมาณปัจจุบัน
+                            อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. การสรรหาและคัดเลือกบุคลากรเช่นการสรรหาและ
+                            คัดเลือก พนักงานราชการ,ครูพิเศษสอน, เจ้าหน้าที่ เป็น
+                            ต้น (กรณีไม่มีการสรรหา ให้ใช้การต่อสัญญา) <br>
+                            2. การบรรจุและการแต่งตั้งบุคลากร เช่น การบรรจุ
+                            และแต่งตั้งพนักงานราชการ,ครูพิเศษสอน,เจ้าหน้าที่ เป็น
+                            ต้น (กรณีไม่มีบรรจุและแต่งตั้ง ให้ใช้การต่อสัญญา) <br>
+                            3. การพัฒนาบุคลากร เช่น พัฒนาครูและบุคลากร
+                            ทางการศึกษาในการจัดการเรียนรู้ เป็นต้น <br>
+                            4. การประเมินผลการปฏิบัติงานบุคลากร เช่น รายงาน
+                            ผลการประเมินเงินเดือน เป็นต้น <br>
+                            5. การสร้างขวัญกําลังใจ เช่น การขอพระราช ทาน
+                            เครื่องราชอิสริยาภรณ์,การแสดงความยินดีครูและ
+                            บุคลากรทางการศึกษาที่ผ่านการเลื่อนวิทยฐานะที่สูงขึ้น,
+                            การเชิดชูเกียรติครูและบุคลากรดีเด่น เป็นต้น
                         </p>
-                        <div class="no-data">ไม่มีข้อมูล</div>
+                        <a href="https://drive.google.com/drive/folders/1XFtb1IrAZBtQ2TztpXA4wov0vrZyBG2J?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-contract"></i>
+                            ดูข้อมูล O24
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O25</span>
+                            <h3 class="item-title">รายงานผลการดําเนินโครงการ/กิจกรรมที่แสดงถึงการพัฒนาทรัพยากรบุคคล</h3>
+                        </div>
+                        <p class="item-description">
+                            - แสดงผลการดําเนินงานตามโครงการ/กิจกรรม จํานวนไม่น้อยกว่า 3 โครงการ/กิจกรรม
+                            ที่แสดงถึงการพัฒนา
+                            ทรัพยากร มีข้อมูลรายละเอียดสรุปผลการดําเนินการอย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. ผลการดําเนินการโครงการหรือกิจกรรม <br>
+                            2. ผลการใช้จ่ายงบประมาณ
+                            (หากไม่มี ระบุว่า “ไม่ใช้งบประมาณ”) <br>
+                            3. ปัญหา อุปสรรค และข้อเสนอแนะ(หากไม่มีปัญหา อุปสรรค
+                            และข้อเสนอแนะ ระบุว่า “ไม่มี”) <br>
+                            - เป็นรายงานผลย้อนหลัง 1 ปีงบประมาณ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1B_xWvip2q5rUAafwo34-ooELsPSGVQmx?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-contract"></i>
+                            ดูข้อมูล O25
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        9. การจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ
+                    </h2>
+                </div>
+
+
+                <div class="items-container">
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O26</span>
+                            <h3 class="item-title">แนวทางปฏิบัติการจัดการร้องเรียนการทุจริตและประพฤติมิชอบ
+                        </div>
+                        <p class="item-description">
+                            -
+                            แสดงคู่มือหรือแนวทางการดําเนินการต่อเรื่องร้องเรียนที่เกี่ยวข้องกับการทุจริตและประพฤติมิชอบของเจ้าหน้าที่
+                            หรือ บุคลากรทางการศึกษาในสถานศึกษา มีข้อมูลรายละเอียดของการปฏิบัติงาน อย่างน้อย ประกอบด้วย
+                            ดังนี้ <br>
+                            1. รายละเอียดวิธีการที่บุคคลภายนอกจะทําการร้องเรียน <br>
+                            2. รายละเอียดขั้นตอนหรือวิธีการในการจัดการต่อเรื่องร้องเรียน <br>
+                            3. ฝ่ายงานที่รับผิดชอบ (รอง ผอ.)<br>
+                            4. ระยะเวลาดําเนินการ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1zOxNixJu0oQA6FnELiRvcHJD557q-Oja?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O26
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">027</span>
+                            <h3 class="item-title">ช่องทางแจ้งเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ
+                        </div>
+                        <p class="item-description">
+                            - แสดงช่องทางที่บุคคลภายนอกสามารถแจ้งเรื่องร้องเรียนเกี่ยวกับการทุจริตและประพฤติมิชอบของ
+                            บุคลากรทางการศึกษาของสถานศึกษาผ่านช่องทางออนไลน์ของสถานศึกษา
+                            โดยแยกต่างหากจากช่องทางการร้องเรียนเรื่องทั่วไป เพื่อเป็นการคุ้มครองข้อมูล
+                            ของผู้แจ้งเบาะแสและเพื่อให้สอดคล้องกับแนวปฏิบัติการจัดการเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ
+                            <br>
+                            - สามารถเข้าถึงหรือเชื่อมโยงไปยังช่องทางข้างต้นได้จากเว็บไซต์หลักของสถานศึกษา
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1XcCzKzvo84BLEcJfeFKpl7ONmst1l4fe?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-book"></i>
+                            ดูข้อมูล 027
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O28</span>
+                            <h3 class="item-title">ข้อมูลเชิงสถิติเรื่องร้องเรียนการทุจริตและประพฤติมิชอบ
+                        </div>
+                        <p class="item-description">
+                            - แสดงข้อมูลสถิติเรื่องร้องเรียนการทุจริตและประพฤติมิชอบของเจ้าหน้าที่หรือบุคลากรทางศึกษาของ
+                            สถานศึกษา <br>
+                            - มีข้อมูลความก้าวหน้าการจัดการเรื่องร้องเรียนการทุจริต
+                            และประพฤติมิชอบ อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. จํานวนเรื่องร้องเรียนทั้งหมด <br>
+                            2. จํานวนเรื่องที่ดําเนินการแล้วเสร็จ <br>
+                            3. จํานวนเรื่องที่อยู่ระหว่างดําเนินการ <br>
+                            - สามารถจัดทําข้อมูลเป็นแบบรายเดือน หรือรายไตรมาส
+                            หรือราย 6 เดือน ที่มีข้อมูลครอบคลุมในระยะ เวลา 6
+                            เดือนแรกของปีงบประมาณปัจจุบัน <br>
+                            *กรณีไม่มีเรื่องร้องเรียนให้เผยแพร่ว่าไม่มีเรื่องร้องเรียน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1v62Z2O5elVU5_RXBCmmtyJWEAqouOkVE?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-chart-bar"></i>
+                            ดูข้อมูล O28
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การเปิดโอกาสให้เกิดการมีส่วนร่วม -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        10. การเปิดโอกาสให้เกิดการมีส่วนร่วม
+                    </h2>
+                </div>
+
+
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">029</span>
+                            <h3 class="item-title">การเปิดโอกาสให้เกิดการมีส่วนร่วม
+                        </div>
+                        <p class="item-description">
+                            -
+                            แสดงการดําเนินการหรือกิจกรรมที่แสดงถึงการเปิดโอกาสให้บุคคลภายนอกได้มีส่วนร่วมในการดําเนินงาน
+                            ตามภารกิจของสถานศึกษา เช่น ประชาสัมพันธ์กิจกรรม/โครงการ, การลงนามความร่วมมือ (MOU)
+                            กับสถานประกอบการหรือบุคคล/หน่วยงานภายนอก เป็นต้น <br>
+                            - เป็นการดําเนินการในปีงบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/12Pz4-IAt8aoKLGujHLwUSdYT8Ko0M2oV?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O29
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- เจตจํานงสุจริตของผู้บริหารสถานศึกษา -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        11. เจตจํานงสุจริตของผู้บริหารสถานศึกษา
+                    </h2>
+                </div>
+
+
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">030</span>
+                            <h3 class="item-title">นโยบายไม่รับของขวัญ(No Gift Policy)
+                        </div>
+                        <p class="item-description">
+                            - แสดงนโยบายว่าผู้บริหาร เจ้าหน้าที่ และบุคลากรทุกคนจะต้องไม่มีการรับของขวัญ (No Gift
+                            Policy) <br>
+                            - ดําเนินการโดยผู้บริหารสถาน ศึกษาหรือผู้ที่ได้รับมอบหมาย หรือผู้ที่ปฏิบัติหน้าที่แทน <br>
+                            - เป็นการดําเนินการในปี งบประมาณปัจจุบัน </p>
+                        <a href="https://drive.google.com/drive/folders/16YHZAgralAQtYGUJRyb-_zgV_XKlyTdo?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O30
+                        </a>
+                    </div>
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">031</span>
+                            <h3 class="item-title">การมีส่วนร่วมของผู้บริหารสถานศึกษา
+                        </div>
+                        <p class="item-description">
+                            -
+                            แสดงการดําเนินการหรือกิจกรรมที่แสดงถึงการมีส่วนร่วมของผู้บริหารสถานศึกษาหรือผู้ที่ได้รับมอบหมาย
+                            หรือผู้ที่ปฏิบัติหน้าที่แทน <br>
+                            - เป็นการดําเนินกิจกรรมที่แสดงให้เห็นถึงการให้ความสําคัญกับการปรับปรุง พัฒนา
+                            และส่งเสริมสถานศึกษาด้านคุณธรรมและความโปร่งใส หรือมีส่วนร่วมในการประกาศนโยบายไม่รับของขวัญ
+                            (No Gift Policy) <br>
+                            - เป็นการดําเนินการในปีงบประมาณปัจจุบัน <br>
+                        </p>
+                        <a href="hhttps://drive.google.com/drive/folders/1gXlTGoNSLeQ4Iz666g7mNXew_FkRUdtZ?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O31
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- การประเมินความเสี่ยงเพื่อป้องกันการทุจริต -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        12. การประเมินความเสี่ยงเพื่อป้องกันการทุจริต
+                    </h2>
+                </div>
+
+
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">032</span>
+                            <h3 class="item-title">การประเมินผลควบคุมภายใน
+                        </div>
+                        <p class="item-description">
+                            แสดงรายการผลประเมินควบคุมภายใน อย่างน้อยประกอบด้วยรายละเอียด ดังนี้ <br>
+                            1. ด้านสภาพแวดล้อม <br>
+                            2. ด้านการประเมินความเสี่ยง <br>
+                            3. ด้านสารสนเทศและการสื่อสาร <br>
+                            4. ด้านการติดตามและประเมินผล <br>
+                            - เป็นการดําเนินการย้อนหลัง 1 ปีงบประมาณ <br>
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1j9GQudbETjzKNS4sZ-R2vkUxpyUI7_SO?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O32
+                        </a>
+                    </div>
+
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">033</span>
+                            <h3 class="item-title">การเสริมสร้างวัฒนธรรมองค์กร
+                        </div>
+                        <p class="item-description">
+                            - มีการนําหลักสูตรต้านทุจริตศึกษาไปใช้ในการจัดการเรียนการสอน ระดับ ปวช. รหัสวิชา 20000-2003
+                            รายวิชากิจกรรมเสริมสร้างสุจริต จิตอาสา และระดับปวส. รหัสวิชา 30000-2001
+                            รายวิชากิจกรรมเสริมสร้างสุจริต จิตอาสา หรือ กิจกรรมที่เกี่ยวข้องกับการเสริมสร้าง
+                            วัฒนธรรมองค์ที่เกี่ยวข้องกับการป้องกันการทุจริตในรูปแบบ อื่น ๆ เช่น โครงการ/กิจกรรม,
+                            แนวทางปฏิบัติ,ประกาศนโยบายไม่รับของขวัญ ฯลฯ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1yJe5ej6SGIrzSSPII4pLX2Zs7Kr5F-eW?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O33
+                        </a>
+                    </div>
+
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">034</span>
+                            <h3 class="item-title">โครงการ/กิจกรรมที่เกี่ยวข้องกับการป้องกันการทุจริต
+                        </div>
+                        <p class="item-description">
+                            - แสดงโครงการ/กิจกรรม ที่มีวัตถุประสงค์ เพื่อป้องกัน
+                            การทุจริต หรือพัฒนาด้านคุณธรรมและความโปร่งใสของ
+                            สถานศึกษา อย่างน้อย ประกอบด้วยรายละเอียด ดังนี้ <br>
+                            1. โครงการ /กิจกรรม <br>
+                            2. งบประมาณ
+                            (กรณีไม่ได้ใช้งบประมาณ ให้ระบุว่า ไม่ใช้งบประมาณ) <br>
+                            3. ช่วงเวลาดําเนินการ <br>
+                            - เป็นโครงการ/กิจกรรม ที่มีระยะเวลาบังคับใช้ใน
+                            ปีงบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/19tWLx9jjYglilYKi00e0ctqiW83lSON0?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O34
+                        </a>
+                    </div>
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">035</span>
+                            <h3 class="item-title">รายงานผลการดําเนินโครงการ/กิจกรรมที่เกี่ยวกับการป้องกัน
+                                การทุจริตประจําปี
+                        </div>
+                        <p class="item-description">
+                            - แสดงผลการดําเนินงานตามโครงการ/กิจกรรมที่
+                            เกี่ยวข้องกับการป้องกันการทุจริต มีข้อมูลรายละเอียด
+                            สรุปผลการดําเนินการ อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. ผลการดําเนินการโครงการหรือกิจกรรม <br>
+                            2. ผลการใช้จ่ายงบประมาณ <br>
+                            3. ปัญหา อุปสรรค และข้อเสนอแนะ
+                            (หากไม่มีปัญหา อุปสรรค และข้อเสนอแนะ ระบุว่า “ไม่มี”) <br>
+                            - เป็นรายงานผลย้อนหลัง 1 ปีงบประมาณ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1E1TRXbtvQhfSL3F2S_xbAgoi9KLswjwM?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O35
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- มาตรการภายในเพื่อป้องกันการทุจริต -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        13. มาตรการภายในเพื่อป้องกันการทุจริต
+                    </h2>
+                </div>
+
+
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">036</span>
+                            <h3 class="item-title">มาตรการส่งเสริมคุณธรรมและความโปร่งใสภายในสถานศึกษา
+                        </div>
+                        <p class="item-description">
+                            - แสดงการวิเคราะห์ผลการประเมินคุณธรรมและความ
+                            โปร่งใสในการดําเนินงานของสถานศึกษาอาชีวศึกษา
+                            ย้อนหลัง 1 ปี งบประมาณ อย่างน้อย ประกอบด้วย ดังนี้ <br>
+                            1. ประเด็นที่เป็นข้อบกพร่องหรือจุดอ่อนที่จะต้อง
+                            แก้ไขโดยเร่งด่วน <br>
+                            2. ประเด็นที่จะต้องพัฒนาให้ดีขึ้น ที่มีความสอดคล้อง
+                            กับผลการประเมินฯ
+                            (หากไม่ได้ดําเนินการให้แสดงมาตรการที่ส่งเสริมคุณธรรม
+                            และความโปร่งใสภายในสถานศึกษาหรือประกาศนโยบาย
+                            ไม่รับของขวัญ)
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1R88rt5tIgfTljr7Ww2XaUsXnkQ5fpWvn?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O36
+                        </a>
+                    </div>
+
+
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">037</span>
+                            <h3 class="item-title">การดําเนินการตามมาตรการส่งเสริมคุณธรรมและความโปร่งใสภายในสถานศึกษา
+                        </div>
+                        <p class="item-description">
+                            - แสดงความก้าวหน้าหรือผลการดําเนินการตามมาตรการ
+                            เพื่อส่งเสริมคุณธรรมและความโปร่งใสภายในสถานศึกษา <br>
+                            - มีข้อมูลรายละเอียดการนํามาตรการเพื่อส่งเสริม <br>
+                            คุณธรรมและความโปร่งใสภายในหน่วยงานในข้อ o36
+                            ไปสู่การปฏิบัติอย่างเป็นรูปธรรม <br>
+                            - เป็นการดําเนินการในปี งบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1g2CzKSGJSCf1TbMJRQdx7Sg8qsBrGGMs?usp=drive_link"
+                            target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดูข้อมูล O37
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- JavaScript for Scroll Animations -->
-    <script>
-        // Scroll Animation
-        function handleScrollAnimation() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            const windowHeight = window.innerHeight;
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('animate');
-                }
-            });
-        }
 
-        // Number Animation
-        function animateNumbers() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            statNumbers.forEach(statNumber => {
-                const targetNumber = parseInt(statNumber.textContent);
-                let currentNumber = 0;
-                const increment = targetNumber / 50;
-                const timer = setInterval(() => {
-                    currentNumber += increment;
-                    if (currentNumber >= targetNumber) {
-                        currentNumber = targetNumber;
-                        clearInterval(timer);
+        <!-- JavaScript for Scroll Animations -->
+        <script>
+            // Scroll Animation
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.scroll-animate');
+                const windowHeight = window.innerHeight;
+
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        element.classList.add('animate');
                     }
-                    statNumber.textContent = Math.floor(currentNumber);
-                }, 50);
-            });
-        }
+                });
+            }
 
-        // Particle Animation Enhancement
-        function enhanceParticles() {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const randomDelay = Math.random() * 2;
-                const randomDuration = 6 + Math.random() * 4;
-                particle.style.animationDelay = `${randomDelay}s`;
-                particle.style.animationDuration = `${randomDuration}s`;
-                
-                // Add random colors
-                const colors = [
-                    'rgba(255,255,255,0.8)',
-                    'rgba(102,126,234,0.6)',
-                    'rgba(118,75,162,0.6)',
-                    'rgba(240,147,251,0.6)'
-                ];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.background = randomColor;
-            });
-        }
+            // Number Animation
+            function animateNumbers() {
+                const statNumbers = document.querySelectorAll('.stat-number');
 
-        // Smooth Scroll for Internal Links
-        function smoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                statNumbers.forEach(statNumber => {
+                    const targetNumber = parseInt(statNumber.textContent);
+                    let currentNumber = 0;
+                    const increment = targetNumber / 50;
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= targetNumber) {
+                            currentNumber = targetNumber;
+                            clearInterval(timer);
+                        }
+                        statNumber.textContent = Math.floor(currentNumber);
+                    }, 50);
+                });
+            }
+
+            // Particle Animation Enhancement
+            function enhanceParticles() {
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const randomDelay = Math.random() * 2;
+                    const randomDuration = 6 + Math.random() * 4;
+                    particle.style.animationDelay = `${randomDelay}s`;
+                    particle.style.animationDuration = `${randomDuration}s`;
+
+                    // Add random colors
+                    const colors = [
+                        'rgba(255,255,255,0.8)',
+                        'rgba(102,126,234,0.6)',
+                        'rgba(118,75,162,0.6)',
+                        'rgba(240,147,251,0.6)'
+                    ];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.background = randomColor;
+                });
+            }
+
+            // Smooth Scroll for Internal Links
+            function smoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }
+
+            // Initialize
+            document.addEventListener('DOMContentLoaded', function () {
+                handleScrollAnimation();
+                enhanceParticles();
+                smoothScroll();
+
+                // Animate numbers on page load
+                setTimeout(animateNumbers, 1000);
+            });
+
+            // Handle scroll events
+            window.addEventListener('scroll', handleScrollAnimation);
+
+            // Add hover effects to action buttons
+            document.querySelectorAll('.action-button').forEach(button => {
+                button.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-6px) scale(1.08)';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add click effect to data items
+            document.querySelectorAll('.data-item').forEach(item => {
+                item.addEventListener('click', function (e) {
+                    if (!e.target.closest('.action-button')) {
+                        this.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
                     }
                 });
             });
-        }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            handleScrollAnimation();
-            enhanceParticles();
-            smoothScroll();
-            
-            // Animate numbers on page load
-            setTimeout(animateNumbers, 1000);
-        });
+            // Preload optimization
+            const preloadImages = () => {
+                const imageUrls = [
+                    'https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png'
+                ];
 
-        // Handle scroll events
-        window.addEventListener('scroll', handleScrollAnimation);
+                imageUrls.forEach(url => {
+                    const img = new Image();
+                    img.src = url;
+                });
+            };
 
-        // Add hover effects to action buttons
-        document.querySelectorAll('.action-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-6px) scale(1.08)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click effect to data items
-        document.querySelectorAll('.data-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (!e.target.closest('.action-button')) {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                }
-            });
-        });
-
-        // Preload optimization
-        const preloadImages = () => {
-            const imageUrls = [
-                'https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png'
-            ];
-            
-            imageUrls.forEach(url => {
-                const img = new Image();
-                img.src = url;
-            });
-        };
-
-        preloadImages();
-    </script>
+            preloadImages();
+        </script>
 </body>
+
 </html>
