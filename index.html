@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITA Assessment - วิทยาลัยเทคนิคเพชรบุรี</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.15);
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: var(--primary-gradient);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: var(--primary-gradient);
+        }
+
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: backgroundShift 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .particle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; transform: scale(1.2); }
+        .particle:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; transform: scale(0.8); }
+        .particle:nth-child(3) { top: 70%; left: 20%; animation-delay: 2s; transform: scale(1.5); }
+        .particle:nth-child(4) { top: 80%; left: 90%; animation-delay: 3s; transform: scale(0.6); }
+        .particle:nth-child(5) { top: 40%; left: 60%; animation-delay: 4s; transform: scale(1); }
+        .particle:nth-child(6) { top: 60%; left: 30%; animation-delay: 5s; transform: scale(1.3); }
+        .particle:nth-child(7) { top: 30%; left: 70%; animation-delay: 6s; transform: scale(0.9); }
+        .particle:nth-child(8) { top: 50%; left: 10%; animation-delay: 7s; transform: scale(1.1); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.6; }
+            25% { transform: translateY(-30px) translateX(15px) rotate(90deg); opacity: 1; }
+            50% { transform: translateY(-60px) translateX(-10px) rotate(180deg); opacity: 0.8; }
+            75% { transform: translateY(-30px) translateX(-20px) rotate(270deg); opacity: 1; }
+        }
+
+        /* Hero Section */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                        url('https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 8rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0.85;
+            animation: heroShimmer 5s ease-in-out infinite alternate;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        @keyframes heroShimmer {
+            0% { opacity: 0.85; }
+            100% { opacity: 0.65; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.2s ease-out;
+            background: linear-gradient(45deg, #fff, #e2e8f0, #fff, #cbd5e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 400% 400%;
+            animation: fadeInUp 1.2s ease-out, gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 400;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            animation: bounce 3s infinite;
+            filter: drop-shadow(0 0 30px rgba(255,255,255,0.8));
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-15px) scale(1.1); }
+            60% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin-bottom: 5rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #e2e8f0, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 40px rgba(255,255,255,0.6);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Category Sections */
+        .data-grid {
+            display: grid;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .category-section {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .category-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .category-section:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 35px 90px rgba(0,0,0,0.25);
+        }
+
+        .category-section:hover::before {
+            opacity: 1;
+        }
+
+        .category-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: slideAcross 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideAcross {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            opacity: 0.95;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+        }
+
+        /* Data Items */
+        .items-container {
+            padding: 4rem 3rem;
+        }
+
+        .data-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255,255,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-gradient);
+            opacity: 0.08;
+            transition: left 0.8s ease;
+        }
+
+        .data-item:hover {
+            transform: translateX(20px) translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            border-left: 6px solid #667eea;
+        }
+
+        .data-item:hover::before {
+            left: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .item-code {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-code::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .item-code:hover::before {
+            left: 100%;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            flex: 1;
+            margin: 0 2.5rem;
+            line-height: 1.5;
+        }
+
+        .item-description {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+            font-size: 1.05rem;
+        }
+
+        /* Action Buttons */
+        .action-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 1.4rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .action-button:hover {
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.7);
+        }
+
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        .action-button i {
+            transition: transform 0.4s ease;
+        }
+
+        .action-button:hover i {
+            transform: scale(1.3) rotate(360deg);
+        }
+
+        /* No Data Message */
+        .no-data {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 2rem 4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(250, 112, 154, 0.5);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .container {
+                padding: 3rem 1.5rem;
+            }
+            
+            .stats-bar {
+                padding: 3rem 2rem;
+            }
+            
+            .items-container {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-icon {
+                font-size: 4rem;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .item-title {
+                margin: 0;
+            }
+            
+            .action-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+            
+            .category-title {
+                font-size: 2rem;
+            }
+            
+            .data-item {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-banner {
+                padding: 6rem 0;
+            }
+            
+            .category-title {
+                font-size: 1.8rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .items-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .data-item {
+                padding: 2rem 1.5rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 4px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1.2s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-banner">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1 class="hero-title">ITA Assessment</h1>
+            <p class="hero-subtitle">
+                การประเมินคุณธรรมและความโปร่งใสในการดำเนินงาน<br>
+                วิทยาลัยเทคนิคเพชรบุรี ปีงบประมาณ พ.ศ. 2567
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Stats Section -->
+        <div class="stats-bar scroll-animate">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">43</div>
+                    <div class="stat-label">รายการข้อมูล</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">หมวดหมู่หลัก</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100</div>
+                    <div class="stat-label">% ความโปร่งใส</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-grid">
+            <!-- ข้อมูลพื้นฐาน -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-info-circle category-icon"></i>
+                        ข้อมูลพื้นฐาน
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O1</span>
+                            <h3 class="item-title">โครงสร้าง</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงแผนผังแสดงโครงสร้างการแบ่งส่วนราชการของสถานศึกษา แสดงตำแหน่งที่สำคัญและการแบ่งส่วนงานภายใน ยกตัวอย่างเช่น ฝ่าย งาน แผนกวิชา เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/file/d/1L_vll8GYvBzoWWS_hGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-download"></i>
+                            ดาวน์โหลดข้อมูล O1
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O2</span>
+                            <h3 class="item-title">ข้อมูลผู้บริหาร</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงข้อมูลของผู้อำนวยการสถานศึกษาและรองผู้อำนวยการสถานศึกษา อย่างน้อย ประกอบด้วยดังนี้
+                        </p>
+                        <a href="https://www.pbtc.ac.th/pbtc2021/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81/" target="_blank" class="action-button">
+                            <i class="fas fa-users"></i>
+                            ดูข้อมูล O2
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O3</span>
+                            <h3 class="item-title">อำนาจหน้าที่</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงข้อมูลหน้าที่และอำนาจของสถานศึกษาตามที่กฎหมายกำหนด เช่น คำสั่งมอบหมายหน้าที่ของสถานศึกษา ระเบียบสำนักงานคณะกรรมการการอาชีวศึกษา ว่าด้วยการบริหารสถานศึกษา เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1Y65tVABSyvczF5POKsWn-yAPtx8mJsuV?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-gavel"></i>
+                            ดาวน์โหลดข้อมูล O3
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O4</span>
+                            <h3 class="item-title">แผนพัฒนาสถานศึกษา หรือแผนปฏิบัติราชการ ประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แผนพัฒนาสถานศึกษา หรือแผนปฏิบัติราชการ ประจำปี
+                        </p>
+                        <a href="https://www.pbtc.ac.th/pbtc2021/%e0%b8%87%e0%b8%b2%e0%b8%99%e0%b8%a7%e0%b8%b2%e0%b8%87%e0%b9%81%e0%b8%9c%e0%b8%99%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b8%a1%e0%b8%b7/" target="_blank" class="action-button">
+                            <i class="fas fa-clipboard-list"></i>
+                            ดูข้อมูl O4
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O5</span>
+                            <h3 class="item-title">ข้อมูลติดต่อหน่วยงาน</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงข้อมูลการติดต่อของสถานศึกษา
+                        </p>
+                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
+                            <i class="fas fa-phone"></i>
+                            ดูข้อมูล O5
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O6</span>
+                            <h3 class="item-title">กฎหมายที่เกี่ยวข้อง</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงกฎหมายที่เกี่ยวข้องกับการดำเนินงานหรือการปฏิบัติงานของสถานศึกษา เช่น แผนการศึกษาแห่งชาติ ประกาศกระทรวงศึกษาธิการการใช้มาตรฐานการอาชีวศึกษา ระดับ ปวช. และปวส. เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1Mo284i7mVSNWv3u-FdTHxsLZj5C6vB8B?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-balance-scale"></i>
+                            ดาวน์โหลดข้อมูล O6
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การประชาสัมพันธ์ -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-bullhorn category-icon"></i>
+                        การประชาสัมพันธ์
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O7</span>
+                            <h3 class="item-title">ข่าวประชาสัมพันธ์</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงข้อมูลข่าวสารต่าง ๆ ที่เกี่ยวข้อง กับการดำเนินงานตามอำนาจหน้าที่ หรือภารกิจของหน่วยงาน โดยเป็น ข่าวสารที่เกิดขึ้นในปีงบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
+                            <i class="fab fa-facebook"></i>
+                            ข่าวประชาสัมพันธ์
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O8</span>
+                            <h3 class="item-title">Q&A (ถาม-ตอบ)</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงตำแหน่งบนเว็บไซต์ของหน่วยงานที่บุคคลภายนอกสามารถสอบถามข้อมูลต่างๆได้ และหน่วยงานสามารถสื่อสารให้คำตอบกับผู้สอบถามได้ โดยมีลักษณะเป็นการสื่อสารได้สองทางบนหน้าเว็บไซต์ของสถานศึกษา (Q&A)
+                        </p>
+                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
+                            <i class="fas fa-comments"></i>
+                            ติดต่อเรา
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O9</span>
+                            <h3 class="item-title">Social Network</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงตำแหน่งบนเว็บไซต์ของหน่วยงานที่สามารถเชื่อมโยงไปยัง เครือข่ายสังคมออนไลน์ของสถานศึกษา
+                        </p>
+                        <a href="https://www.facebook.com/prachasumpan.pbtc?locale=th_TH" target="_blank" class="action-button">
+                            <i class="fab fa-facebook"></i>
+                            Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การบริหารงาน -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-cogs category-icon"></i>
+                        การบริหารงาน
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O10</span>
+                            <h3 class="item-title">แผนปฏิบัติการประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงแผนการดำเนินงานภารกิจของหน่วยงานที่มีระยะ 1 ปี มีข้อมูลรายละเอียดของแผนฯอย่างน้อย ประกอบด้วย 1.โครงการหรือกิจกรรม 2.งบประมาณที่ใช้ 3.ระยะเวลาในการดำเนินงาน -เป็นแผนที่มีระยะเวลาบังคับใช้ในปีงบประมาณปัจจุบัน
+                        </p>
+                        <a href="https://www.pbtc.ac.th/pbtc2021/%e0%b8%87%e0%b8%b2%e0%b8%99%e0%b8%a7%e0%b8%b2%e0%b8%87%e0%b9%81%e0%b8%9c%e0%b8%99%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b8%a3%e0%b9%88%e0%b8%a7%e0%b8%a1%e0%b8%a1%e0%b8%b7/" target="_blank" class="action-button">
+                            <i class="fas fa-tasks"></i>
+                            ดูข้อมูล O10
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O11</span>
+                            <h3 class="item-title">รายงานการกำกับติดตามการดำเนินงานประจำปีรอบ 6 เดือน</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงความก้าวหน้าในการดำเนินงานตามแผนประจำปีในข้อ O10 -มีเนื้อหาหรือรายละเอียด ความก้าวหน้า
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1CqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-chart-line"></i>
+                            ดาวน์โหลดข้อมูล O11
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O12</span>
+                            <h3 class="item-title">รายงานผลการดำเนินงานประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานผลการดำเนินงานตามแผนปฏิบัติการประจำปี หรือแสดงรายงานการประเมินผลการปฏิบัติราชการประจำปี
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1DqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-file-alt"></i>
+                            ดาวน์โหลดข้อมูล O12
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การให้บริการ -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-hands-helping category-icon"></i>
+                        การให้บริการ
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O13</span>
+                            <h3 class="item-title">คู่มือหรือมาตรฐานการปฏิบัติงาน</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงคู่มือการปฏิบัติงาน หรือมาตรฐานการปฏิบัติงาน สำหรับงานบริการที่หน่วยงานให้บริการประชาชน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1EqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-book"></i>
+                            ดาวน์โหลดข้อมูล O13
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O14</span>
+                            <h3 class="item-title">ข้อมูลเชิงสถิติการให้บริการ</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงข้อมูลเชิงสถิติการให้บริการแก่ประชาชน เช่น จำนวนผูร้ับบริการ ระยะเวลาในการให้บริการ ความพึงพอใจของผู้รับบริการ เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1FqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-chart-bar"></i>
+                            ดาวน์โหลดข้อมูล O14
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O15</span>
+                            <h3 class="item-title">รายงานผลการสำรวจความพึงพอใจการให้บริการ</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานผลการสำรวจความพึงพอใจของประชาชนที่ได้รับบริการจากหน่วยงาน
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1GqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-smile"></i>
+                            ดาวน์โหลดข้อมูล O15
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การบริหารงานบุคคล -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-users category-icon"></i>
+                        การบริหารงานบุคคล
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O16</span>
+                            <h3 class="item-title">นโยบายการบริหารทรัพยากรบุคคล</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงนโยบาย แผน หรือมาตรการในการบริหารและพัฒนาทรัพยากรบุคคล เช่น นโยบายการสรรหา การพัฒนา การเลื่อนขั้น การเลื่อนตำแหน่ง เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1HqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-user-tie"></i>
+                            ดาวน์โหลดข้อมูล O16
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O17</span>
+                            <h3 class="item-title">หลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงหลักเกณฑ์การบริหารและพัฒนาทรัพยากรบุคคล เช่น หลักเกณฑ์การสรรหาบุคลากร การประเมินผลการปฏิบัติราชการ การพัฒนาบุคลากร เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1IqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-clipboard-check"></i>
+                            ดาวน์โหลดข้อมูล O17
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O18</span>
+                            <h3 class="item-title">รายงานผลการบริหารและพัฒนาทรัพยากรบุคคล</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานผลการดำเนินการตามนโยบาย แผน หรือมาตรการในการบริหารและพัฒนาทรัพยากรบุคคล
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1JqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-user-graduate"></i>
+                            ดาวน์โหลดข้อมูล O18
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การบริหารการเงิน การคลัง และพัสดุ -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-money-bill-wave category-icon"></i>
+                        การบริหารการเงิน การคลัง และพัสดุ
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O19</span>
+                            <h3 class="item-title">แผนการใช้จ่ายงบประมาณประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงแผนการใช้จ่ายงบประมาณประจำปี แยกตามแหล่งงบประมาณ หมวดรายจ่าย แผนงาน เป็นต้น
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1KqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-calculator"></i>
+                            ดาวน์โหลดข้อมูล O19
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O20</span>
+                            <h3 class="item-title">รายงานการใช้จ่ายงบประมาณ</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานการใช้จ่ายงบประมาณตามข้อมูลที่ปรากฏในระบบ GFMIS หรือระบบอื่นๆ ที่เกี่ยวข้อง
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1LqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            ดาวน์โหลดข้อมูล O20
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O21</span>
+                            <h3 class="item-title">แผนการจัดซื้อจัดจ้างประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงแผนการจัดซื้อจัดจ้างประจำปีงบประมาณ เว้นแต่แผนการจัดซื้อจัดจ้างที่อาจกระทบต่อความมั่นคงของประเทศ
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1MqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-shopping-cart"></i>
+                            ดาวน์โหลดข้อมูl O21
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การตรวจสอบ -->
+            <div class="category-section scroll-animate">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <i class="fas fa-search category-icon"></i>
+                        การตรวจสอบ
+                    </h2>
+                </div>
+                <div class="items-container">
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O22</span>
+                            <h3 class="item-title">รายงานผลการตรวจสอบภายในประจำปี</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานผลการตรวจสอบภายใน หรือรายงานการสอบทานการปฏิบัติราชการประจำปีที่ผ่านมา
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1NqzQzY3nVqJAGz-Xm28QTtlzqrj/view?usp=sharing" target="_blank" class="action-button">
+                            <i class="fas fa-file-contract"></i>
+                            ดาวน์โหลดข้อมูล O22
+                        </a>
+                    </div>
+
+                    <div class="data-item">
+                        <div class="item-header">
+                            <span class="item-code">O23</span>
+                            <h3 class="item-title">รายงานการติดตามและประเมินผล</h3>
+                        </div>
+                        <p class="item-description">
+                            แสดงรายงานการติดตามและประเมินผลการดำเนินงานตามภารกิจของสถานศึกษา
+                        </p>
+                        <div class="no-data">ไม่มีข้อมูล</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+        // Scroll Animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Number Animation
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(statNumber => {
+                const targetNumber = parseInt(statNumber.textContent);
+                let currentNumber = 0;
+                const increment = targetNumber / 50;
+                const timer = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= targetNumber) {
+                        currentNumber = targetNumber;
+                        clearInterval(timer);
+                    }
+                    statNumber.textContent = Math.floor(currentNumber);
+                }, 50);
+            });
+        }
+
+        // Particle Animation Enhancement
+        function enhanceParticles() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const randomDelay = Math.random() * 2;
+                const randomDuration = 6 + Math.random() * 4;
+                particle.style.animationDelay = `${randomDelay}s`;
+                particle.style.animationDuration = `${randomDuration}s`;
+                
+                // Add random colors
+                const colors = [
+                    'rgba(255,255,255,0.8)',
+                    'rgba(102,126,234,0.6)',
+                    'rgba(118,75,162,0.6)',
+                    'rgba(240,147,251,0.6)'
+                ];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = randomColor;
+            });
+        }
+
+        // Smooth Scroll for Internal Links
+        function smoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            handleScrollAnimation();
+            enhanceParticles();
+            smoothScroll();
+            
+            // Animate numbers on page load
+            setTimeout(animateNumbers, 1000);
+        });
+
+        // Handle scroll events
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Add hover effects to action buttons
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-6px) scale(1.08)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click effect to data items
+        document.querySelectorAll('.data-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('.action-button')) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+
+        // Preload optimization
+        const preloadImages = () => {
+            const imageUrls = [
+                'https://www.pbtc.ac.th/pbtc2021/wp-content/uploads/INTEGRITY-AND-TRANSPARENCY-ASSESSMENT-ITA-2.png'
+            ];
+            
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        };
+
+        preloadImages();
+    </script>
+</body>
+</html>
